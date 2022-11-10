@@ -1,0 +1,326 @@
+@import url("https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .calenderSection {
+    @apply p-1.5 px-2 cursor-pointer hover:bg-gray-100 hover:text-teal-500 duration-200 rounded-lg font-bold;
+  }
+
+  .arrowSymbol {
+    @apply w-7 h-8 hover:bg-gray-100 hover:text-teal-500 duration-300 cursor-pointer flex items-center justify-center rounded-md;
+  }
+
+  .userSettings {
+    @apply flex p-2 mt-[2px] space-x-2 items-center hover:bg-slate-200 cursor-pointer rounded-md text-gray-400 text-sm;
+  }
+
+  .boardActionDropDown {
+    @apply flex items-center gap-3 p-2 cursor-pointer rounded-lg duration-200 hover:bg-gray-200 text-[#B9C3CE] mb-1;
+  }
+
+  .radioButton{
+    @apply relative appearance-none w-5 h-5 rounded-full cursor-pointer bg-white border-2 border-themeColor before:absolute before:w-3 before:h-3 before:content-[''] before:bg-white before:left-[50%] before:top-[50%] before:translate-y-[-50%] before:translate-x-[-50%] before:rounded-full checked:before:bg-themeColor/50
+  }
+  .checkBox{
+    @apply relative appearance-none w-5 h-5 rounded-sm cursor-pointer bg-white border-2 border-themeColor before:absolute before:w-3 before:h-3 before:content-[''] before:bg-white before:left-[50%] before:top-[50%] before:translate-y-[-50%] before:translate-x-[-50%] before:rounded-sm checked:before:bg-themeColor/50
+  }
+}
+
+body {
+  font-family: "Varela Round", sans-serif;
+}
+
+.customScroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.customScroll::-webkit-scrollbar-thumb {
+  border-radius   : 5px;
+  background-color: #999;
+}
+
+.customScroll::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.customScroll::-webkit-scrollbar-track {
+  border-radius   : 5px;
+  border          : 1px solid #bbb;
+  background-color: #f8f8f8;
+}
+
+.loading_continuous {
+  width:140px;
+  height:28px;
+  -webkit-mask:
+    radial-gradient(circle closest-side,#000 94%,#0000) 0 0/25% 100%,
+    linear-gradient(#000 0 0) center/calc(100% - 12px) calc(100% - 12px) no-repeat;
+    background: linear-gradient(#25b09b 0 0) 0/0% no-repeat #ddd;
+    animation: p7 2s infinite linear;
+}
+@keyframes p7 {
+    100% {background-size:100%}
+}
+
+/* =====chat ======= */
+
+.input-style {
+  overflow-wrap: break-word;
+}
+
+.user-box {
+  transition: transform 300ms ease-in-out 0s;
+}
+
+.msg-icons {
+  opacity: 0;
+  transition: all .5s;
+}
+
+.reaction-wrapper {
+  transition: all .5s;
+}
+
+.user-box:hover .reaction-wrapper {
+  right: 160px;
+}
+
+.user-box:hover .msg-icons {
+  opacity: 1;
+}
+
+
+.mentioned-message-wrapper img {
+  width: 50px!important;
+  display: inline-block;
+}
+
+.tooltip-box {
+  position: relative;
+}
+
+.tooltip-box .tooltip-text {
+  position     : absolute;
+  left         : 50%;
+  top          : -40px;
+  transform    : translateX(-50%);
+  padding      : 4px 8px;
+  font-size    : 10px;
+  color        : #ede9e9;
+  background   : #464f52;
+  border-radius: 5px;
+  white-space  : nowrap;
+  max-width    : none;
+  opacity      : 0;
+  transition   : transform 300ms ease-in-out 0s;
+}
+
+.tooltip-box .tooltip-text::before {
+  content         : "";
+  position        : absolute;
+  width           : 0.6rem;
+  height          : 0.6rem;
+  background-color: #464f52;
+  bottom          : -3px;
+  left            : 50%;
+  transform       : translateX(-50%) rotate(45deg);
+  border-radius   : 1px;
+}
+
+.tooltip-box:hover .tooltip-text {
+  opacity: 1;
+}
+
+.attach-box {
+  position     : absolute;
+  left         : 50%;
+  top          : -135px;
+  transform    : translateX(-50%);
+  background   : #ffffff;
+  padding      : 15px;
+  box-shadow   : 1px 1px 8px rgb(172, 172, 172);
+  white-space  : nowrap;
+  max-width    : none;
+  border-radius: 5px;
+  z-index      : 100;
+}
+
+.attach-box::before {
+  content         : "";
+  position        : absolute;
+  width           : 0.6rem;
+  height          : 0.6rem;
+  background-color: #ffffff;
+  bottom          : -4px;
+  left            : 50%;
+  transform       : translateX(-50%) rotate(45deg);
+  border-radius   : 1px;
+  box-shadow      : 1px 1px 1px rgb(172, 172, 172);
+}
+
+/* =====chat end ======= */
+
+/* =====timeline===== */
+
+.custom_radio input[type="radio"] {
+  display: none;
+}
+
+.custom_radio input[type="radio"]+label {
+  position          : relative;
+  display           : inline-block;
+  padding-left      : 2em;
+  cursor            : pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition        : all 0.3s ease-in-out;
+}
+
+.custom_radio input[type="radio"]+label:before,
+.custom_radio input[type="radio"]+label:after {
+  content           : "";
+  position          : absolute;
+  top               : 0;
+  left              : 0;
+  width             : 1.2em;
+  height            : 1.2em;
+  text-align        : center;
+  color             : rgb(233, 21, 21);
+  font-family       : Times;
+  border-radius     : 50%;
+  -webkit-transition: all 0.3s ease;
+  transition        : all 0.3s ease;
+}
+
+.custom_radio input[type="radio"]+label:before {
+  -webkit-transition: all 0.3s ease;
+  transition        : all 0.3s ease;
+  box-shadow        : inset 0 0 0 0.2em rgb(188, 187, 187),
+    inset 0 0 0 1em rgb(255, 254, 254);
+}
+
+.custom_radio input[type="radio"]:checked+label:before {
+  -webkit-transition: all 0.3s ease;
+  transition        : all 0.3s ease;
+  box-shadow        : inset 0 0 0 0.2em rgb(214, 213, 213), inset 0 0 0 1em #b9e7ec;
+}
+
+.styled-checkbox {
+  position: absolute;
+  opacity : 0;
+}
+
+.styled-checkbox+label {
+  position  : relative;
+  cursor    : pointer;
+  /* padding: 0; */
+  color     : rgb(148 163 184);
+}
+
+.styled-checkbox+label:before {
+  content       : "";
+  margin-right  : 15px;
+  display       : inline-block;
+  vertical-align: text-top;
+  width         : 17px;
+  height        : 17px;
+  background    : white;
+  border-radius : 3px;
+  border        : 2px solid rgb(148 163 184);
+}
+
+.styled-checkbox:checked+label:before {
+  background: rgb(20 184 166);
+  border    : 2px solid rgb(20 184 166);
+}
+
+.styled-checkbox:checked+label:after {
+  content   : "";
+  position  : absolute;
+  left      : 3px;
+  top       : 7px;
+  background: white;
+  width     : 2px;
+  height    : 2px;
+  box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white,
+    4px -6px 0 white, 4px -8px 0 white;
+  transform: rotate(45deg);
+}
+
+.dateDayItem {
+  display       : flex;
+  flex-direction: column;
+  align-items   : center;
+  cursor        : pointer;
+  margin        : 0 0 0 5px;
+  width         : 150px;
+  height        : 49px;
+  flex-shrink   : 0;
+}
+
+.dateDayItemMarked {
+  display       : flex;
+  flex-direction: column;
+  align-items   : center;
+  cursor        : pointer;
+  margin        : 0 0 0 5px;
+  width         : 150px;
+  height        : 70px;
+  flex-shrink   : 0;
+}
+
+/* .timebox-color {
+  background: rgb(156 163 175);
+} */
+
+/* =====timeline===== */
+
+.slider {
+  background-color  : rgb(214, 213, 213);
+  -webkit-transition: 0.4s;
+  transition        : 0.4s cubic-bezier(0, 1, 0.5, 1);
+}
+
+.slider:before {
+  position          : absolute;
+  content           : "";
+  height            : 14px;
+  width             : 14px;
+  left              : 0;
+  top               : 50%;
+  transform         : translateY(-50%);
+  background-color  : #b9c3ce;
+  -webkit-transition: 0.4s;
+  transition        : 0.4s cubic-bezier(0, 1, 0.5, 1);
+  border-radius     : 3px;
+}
+
+.toggle-checkbox:checked+.slider {
+  background-color: #abdfe3;
+}
+
+.toggle-checkbox:checked+.slider2 {
+  background-color: #dfc5e0 !important;
+}
+
+.toggle-checkbox:checked+.slider:before {
+  transform       : translate(16px, -7px);
+  background-color: #57bec7;
+}
+
+.toggle-checkbox:checked+.slider2:before {
+  background-color: #bf8ac0 !important;
+}
+
+.slider.round {
+  border-radius: 20px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+  top          : 50%;
+  right        : 0;
+}

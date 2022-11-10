@@ -1,0 +1,49 @@
+.mentions {
+    width: 100%;
+    color: black;
+    /* outline: none;
+    border: 3px solid #c2c1c1;
+    border-radius: 1rem; */
+  }
+  
+  .mentions--singleLine .mentions__control {
+    width: 100%;
+  }
+
+  .mentions--singleLine .mentions__input {
+    padding: 1px;
+    outline: none;
+  }
+  
+  .mentions--multiLine .mentions__control {
+    font-family: monospace;
+    font-size: 14pt;
+  }
+  .mentions--multiLine .mentions__highlighter {
+    border: 1px solid transparent;
+    padding: 9px;
+    min-height: 63px;
+  }
+  .mentions--multiLine .mentions__input {
+    padding: 10px;
+    outline: none;
+    border: none;
+  }  
+  
+  .mentions__suggestions__list {
+    font-size: 10pt;
+  }
+  
+  .mentions__suggestions__item--focused {
+    background-color: #ddd;
+  }
+  
+  .mentions__mention {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    color: #1b9ed6;
+    text-decoration: none;
+    pointer-events: none;
+  }
